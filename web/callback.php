@@ -9,6 +9,7 @@ $jsonObj = json_decode($json_string);
 $type = $jsonObj->{"events"}[0]->{"message"}->{"type"};
 //メッセージ取得
 $text = $jsonObj->{"events"}[0]->{"message"}->{"text"};
+$uid = $jsonObj->{"events"}[0]->{"source"}->{"userId"};
 //ReplyToken取得
 $replyToken = $jsonObj->{"events"}[0]->{"replyToken"};
 
@@ -132,7 +133,7 @@ if ($text == 'はい') {
 } else {
   $response_format_text = [
     "type" => "text",
-    "text" => "$text"
+    "text" => "$uid"
   ];
 }
 
